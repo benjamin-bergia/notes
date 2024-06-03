@@ -10,3 +10,6 @@ acl is_xml var(txn.path) -m end .xml
 http-response set-header content-type application/pdf if is_file is_pdf
 http-response set-header content-type application/xml if is_file is_xml
 ```
+
+The request path is added to a transaction-scoped variable that will still be available during the processing of the response.
+Accessing the request path during the response processing wouldn't work.
